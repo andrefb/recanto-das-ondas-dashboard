@@ -2,95 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Beach-inspired palette - Recanto das Ondas */
+    --background: 40 30% 98%;
+    --foreground: 210 25% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 25% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 25% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Ocean blue - calm, not bright */
+    --primary: 200 45% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Sand beige */
+    --secondary: 35 30% 93%;
+    --secondary-foreground: 210 25% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted shell tones */
+    --muted: 35 20% 95%;
+    --muted-foreground: 210 15% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Seafoam accent */
+    --accent: 175 35% 88%;
+    --accent-foreground: 175 40% 30%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 20% 90%;
+    --input: 35 20% 90%;
+    --ring: 200 45% 45%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom colors */
+    --ocean: 200 45% 45%;
+    --ocean-light: 200 40% 92%;
+    --ocean-dark: 200 50% 35%;
+    --sand: 35 35% 90%;
+    --sand-dark: 35 30% 70%;
+    --seafoam: 175 35% 85%;
+    --seafoam-dark: 175 40% 40%;
+    --coral: 15 60% 65%;
+    --shell: 30 25% 85%;
+    --wave: 195 50% 50%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 210 25% 35%;
+    --sidebar-primary: 200 45% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 40% 95%;
+    --sidebar-accent-foreground: 200 45% 35%;
+    --sidebar-border: 35 20% 92%;
+    --sidebar-ring: 200 45% 45%;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(200 45% 45%), hsl(195 50% 55%));
+    --gradient-sand: linear-gradient(180deg, hsl(40 30% 98%), hsl(35 35% 94%));
+    --gradient-wave: linear-gradient(90deg, hsl(200 40% 92%), hsl(175 35% 90%));
+    --gradient-sunset: linear-gradient(135deg, hsl(35 50% 85%), hsl(15 45% 80%));
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 210 25% 10%;
+    --foreground: 35 20% 95%;
+    --card: 210 25% 12%;
+    --card-foreground: 35 20% 95%;
+    --popover: 210 25% 12%;
+    --popover-foreground: 35 20% 95%;
+    --primary: 200 45% 55%;
+    --primary-foreground: 210 25% 10%;
+    --secondary: 210 20% 18%;
+    --secondary-foreground: 35 20% 95%;
+    --muted: 210 20% 18%;
+    --muted-foreground: 35 15% 65%;
+    --accent: 175 30% 25%;
+    --accent-foreground: 175 35% 85%;
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 20% 18%;
+    --input: 210 20% 18%;
+    --ring: 200 45% 55%;
+    --sidebar-background: 210 25% 10%;
+    --sidebar-foreground: 35 15% 75%;
+    --sidebar-primary: 200 45% 55%;
+    --sidebar-primary-foreground: 210 25% 10%;
+    --sidebar-accent: 210 20% 18%;
+    --sidebar-accent-foreground: 35 20% 95%;
+    --sidebar-border: 210 20% 18%;
+    --sidebar-ring: 200 45% 55%;
   }
 }
 
@@ -100,6 +107,99 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .wave-decoration {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wave-decoration::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, 
+      hsl(var(--ocean)) 0%, 
+      hsl(var(--seafoam-dark)) 50%, 
+      hsl(var(--ocean)) 100%
+    );
+    border-radius: 3px 3px 0 0;
+    opacity: 0.7;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 shadow-sm;
+  }
+
+  .stat-card {
+    @apply bg-card rounded-2xl p-6 border border-border/40 shadow-sm transition-all duration-300;
+  }
+
+  .stat-card:hover {
+    @apply shadow-md border-ocean/20 -translate-y-0.5;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sidebar-foreground/70 transition-all duration-200;
+  }
+
+  .nav-item:hover {
+    @apply bg-sidebar-accent text-sidebar-foreground;
+  }
+
+  .nav-item.active {
+    @apply bg-ocean/10 text-ocean font-medium;
+  }
+}
+
+@layer utilities {
+  .text-gradient-ocean {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-ocean);
+  }
+
+  .bg-gradient-ocean {
+    background-image: var(--gradient-ocean);
+  }
+
+  .bg-gradient-sand {
+    background-image: var(--gradient-sand);
+  }
+
+  .bg-gradient-wave {
+    background-image: var(--gradient-wave);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.3);
   }
 }
