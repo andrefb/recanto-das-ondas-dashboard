@@ -19,7 +19,7 @@ export const WelcomeHeader = () => {
         </div>
         <div>
           <h1 className="text-2xl md:text-3xl font-display font-semibold text-foreground">
-            {greeting}, Marina! 👋
+            {greeting}, Aline! 👋
           </h1>
           <p className="text-muted-foreground mt-1">
             Veja o que está acontecendo no Recanto das Ondas hoje.

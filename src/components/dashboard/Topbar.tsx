@@ -55,11 +55,11 @@ export const Topbar = ({ sidebarCollapsed, onMenuClick }: TopbarProps) => {
           {/* User Avatar */}
           <button className="flex items-center gap-3 p-1.5 pr-3 rounded-xl hover:bg-muted transition-colors group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-ocean to-seafoam-dark flex items-center justify-center text-primary-foreground font-medium text-sm">
-              MR
+              AA
             </div>
             <div className="hidden md:block text-left">
               <p className="text-sm font-medium text-foreground leading-tight">
-                Marina Reis
+                Aline Ane
               </p>
               <p className="text-xs text-muted-foreground">Corretora</p>
             </div>
