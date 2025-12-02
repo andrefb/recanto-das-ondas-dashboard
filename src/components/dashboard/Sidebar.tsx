@@ -1,6 +1,6 @@
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { WaveIcon } from "@/components/icons/WaveIcon";
+import { useLocation, Link } from "react-router-dom";
 import {
   LayoutDashboard,
   Building2,
@@ -24,10 +24,10 @@ interface SidebarProps {
 }
 
 const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", href: "#", active: true },
+  { icon: LayoutDashboard, label: "Dashboard", href: "/" },
   { icon: Building2, label: "Imóveis", href: "#", badge: 24 },
   { icon: MapPin, label: "Localizações", href: "#" },
-  { icon: Users, label: "Clientes", href: "#", badge: 8 },
+  { icon: Users, label: "Clientes", href: "/clientes", badge: 8 },
   { icon: Heart, label: "Favoritos", href: "#" },
   { icon: Calendar, label: "Agendamentos", href: "#", badge: 3 },
   { icon: MessageSquare, label: "Mensagens", href: "#", badge: 12 },
@@ -40,6 +40,8 @@ const bottomNavItems = [
 ];
 
 export const Sidebar = ({ collapsed, onToggle, mobileOpen, onMobileClose }: SidebarProps) => {
+  const location = useLocation();
+  
   return (
     <>
       {/* Mobile overlay */}
@@ -78,38 +80,41 @@ export const Sidebar = ({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
       {/* Navigation */}
       <nav className="flex-1 py-4 px-3 overflow-y-auto scrollbar-thin">
         <div className="space-y-1">
-          {navItems.map((item, index) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className={cn(
-                "nav-item group",
-                item.active && "active",
-                "animate-slide-in-left"
-              )}
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <item.icon
+          {navItems.map((item, index) => {
+            const isActive = location.pathname === item.href;
+            return (
+              <Link
+                key={item.label}
+                to={item.href}
                 className={cn(
-                  "w-5 h-5 flex-shrink-0 transition-colors",
-                  item.active ? "text-ocean" : "text-muted-foreground group-hover:text-foreground"
+                  "nav-item group",
+                  isActive && "active",
+                  "animate-slide-in-left"
                 )}
-              />
-              {!collapsed && (
-                <>
-                  <span className="flex-1">{item.label}</span>
-                  {item.badge && (
-                    <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-ocean/10 text-ocean">
-                      {item.badge}
-                    </span>
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <item.icon
+                  className={cn(
+                    "w-5 h-5 flex-shrink-0 transition-colors",
+                    isActive ? "text-ocean" : "text-muted-foreground group-hover:text-foreground"
                   )}
-                </>
-              )}
-              {collapsed && item.badge && (
-                <span className="absolute right-2 top-1 w-2 h-2 rounded-full bg-ocean" />
-              )}
-            </a>
-          ))}
+                />
+                {!collapsed && (
+                  <>
+                    <span className="flex-1">{item.label}</span>
+                    {item.badge && (
+                      <span className="px-2 py-0.5 text-xs font-medium rounded-full bg-ocean/10 text-ocean">
+                        {item.badge}
+                      </span>
+                    )}
+                  </>
+                )}
+                {collapsed && item.badge && (
+                  <span className="absolute right-2 top-1 w-2 h-2 rounded-full bg-ocean" />
+                )}
+              </Link>
+            );
+          })}
         </div>
       </nav>
 
